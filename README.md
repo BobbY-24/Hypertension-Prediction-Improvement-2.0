@@ -81,6 +81,25 @@ Random Forest: Provided regression-based evaluation with MSE and R².
 
 Logistic Regression: Better suited for classification, offering accuracy and detailed performance metrics.
 
+Method 1: 
+
+Mean Squared Error: 0.04
+R^2 Score: 0.82
+
+Method 2: 
+
+Accuracy: 0.8823529411764706
+Classification Report:
+               precision    recall  f1-score   support
+
+       False       0.85      0.87      0.86       101
+        True       0.90      0.89      0.90       137
+
+    accuracy                           0.88       238
+   macro avg       0.88      0.88      0.88       238
+weighted avg       0.88      0.88      0.88       238
+
+
 🚀 Next Steps
 
 Hyperparameter tuning (GridSearchCV / RandomizedSearchCV)
