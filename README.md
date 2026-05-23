@@ -1,10 +1,10 @@
 # Hypertension Prediction
 
 ## Overview
-This project explores machine learning methods for predicting hypertension from demographic, lifestyle, and health-related features. The notebook compares a regression-style Random Forest approach with a classification-oriented logistic regression pipeline. The project is a practical exercise in preprocessing mixed feature types, choosing metrics, and evaluating model fit.
+I used this project to explore machine learning methods for predicting hypertension from demographic, lifestyle, and health-related features. The notebook compares a regression-style Random Forest approach with a classification-oriented logistic regression pipeline. I treat the project as a practical exercise in preprocessing mixed feature types, choosing metrics, and evaluating model fit.
 
 ## Motivation
-Health prediction tasks require careful framing because predictive performance does not imply medical validity or causality. This project demonstrates applied ML skills while also showing the importance of honest limitations, appropriate target framing, and reproducible evaluation. It is intended as an educational data science project, not a diagnostic tool.
+I frame health prediction tasks carefully because they require careful framing because predictive performance does not imply medical validity or causality. This project demonstrates applied ML skills while also showing the importance of honest limitations, appropriate target framing, and reproducible evaluation. It is intended as an educational data science project, not a diagnostic tool.
 
 ## Dataset
 - **Source:** Kaggle Hypertension Dataset.
@@ -23,7 +23,7 @@ Health prediction tasks require careful framing because predictive performance d
 - Used visualizations to inspect feature distributions and relationships.
 
 ## Results
-The notebook reports:
+My notebook reports:
 
 - Random Forest regression-style evaluation: **MSE = 0.04**, **R-squared = 0.82**
 - Logistic Regression classification accuracy: **0.8824**
@@ -42,9 +42,9 @@ Classification report from the notebook:
 - Health prediction projects require stronger validation before any real-world interpretation.
 
 ## Limitations
-- This is not a medical diagnostic model.
+- I do not intend this as a medical diagnostic model.
 - The dataset source and collection process are not sufficiently documented for clinical conclusions.
-- The notebook uses a single split and should be validated with cross-validation.
+- I use a single split and should be validated with cross-validation.
 - The Random Forest regressor framing is less appropriate for a binary target than classification models.
 - Potential bias across demographic or lifestyle groups has not been evaluated.
 
@@ -65,4 +65,4 @@ pip install -r requirements.txt
 jupyter notebook notebooks/hypertension_prediction.ipynb
 ```
 
-Run the notebook cells from top to bottom. The notebook expects the dataset at `data/hypertension_dataset.csv`.
+Run my notebook cells from top to bottom. I expect the dataset at `data/hypertension_dataset.csv`.
