@@ -1,115 +1,68 @@
-Hypertension Prediction Project
-📌 Overview
+# Hypertension Prediction
 
-This project explores different machine learning methods to predict hypertension based on demographic, lifestyle, and health-related features. The dataset was sourced from Kaggle and analyzed using Python with pandas, scikit-learn, and visualization libraries.
+## Overview
+This project explores machine learning methods for predicting hypertension from demographic, lifestyle, and health-related features. The notebook compares a regression-style Random Forest approach with a classification-oriented logistic regression pipeline. The project is a practical exercise in preprocessing mixed feature types, choosing metrics, and evaluating model fit.
 
-The notebook includes:
+## Motivation
+Health prediction tasks require careful framing because predictive performance does not imply medical validity or causality. This project demonstrates applied ML skills while also showing the importance of honest limitations, appropriate target framing, and reproducible evaluation. It is intended as an educational data science project, not a diagnostic tool.
 
-Data loading and exploration
+## Dataset
+- **Source:** Kaggle Hypertension Dataset.
+- **File:** `data/hypertension_dataset.csv`
+- **Size:** 1,985 records.
+- **Target variable:** `Has_Hypertension`, represented as `Yes`/`No` and converted for modeling.
+- **Important features:** `Age`, `Salt_Intake`, `Stress_Score`, `BP_History`, `Sleep_Duration`, `BMI`, `Medication`, `Family_History`, `Exercise_Level`, and `Smoking_Status`.
+- **Known limitations:** Dataset collection details, representativeness, clinical validation, and measurement procedures are not documented in this repository.
 
-Preprocessing (encoding categorical variables, scaling numerical features)
+## Methods
+- Loaded and inspected the dataset with pandas.
+- Encoded categorical variables with one-hot encoding.
+- Scaled numeric variables for the logistic regression pipeline.
+- Tested a Random Forest regressor and evaluated it with MSE and R-squared.
+- Tested logistic regression and evaluated it with accuracy, precision, recall, and F1-score.
+- Used visualizations to inspect feature distributions and relationships.
 
-Model building with two approaches:
+## Results
+The notebook reports:
 
-Random Forest Regressor + OneHotEncoder
+- Random Forest regression-style evaluation: **MSE = 0.04**, **R-squared = 0.82**
+- Logistic Regression classification accuracy: **0.8824**
 
-Logistic Regression + OneHotEncoder & StandardScaler
+Classification report from the notebook:
 
-Model evaluation with metrics such as MSE, R², Accuracy, and Classification Report
+| Class | Precision | Recall | F1-score | Support |
+| --- | ---: | ---: | ---: | ---: |
+| `False` | 0.85 | 0.87 | 0.86 | 101 |
+| `True` | 0.90 | 0.89 | 0.90 | 137 |
 
-⚙️ Installation
+## Key Insights
+- Logistic regression is a more natural baseline than regression for the binary hypertension target.
+- Age, lifestyle, and health-history features provide measurable predictive signal in this dataset.
+- The reported metrics suggest balanced performance across both classes in the test split.
+- Health prediction projects require stronger validation before any real-world interpretation.
 
-Clone the repository and install dependencies:
+## Limitations
+- This is not a medical diagnostic model.
+- The dataset source and collection process are not sufficiently documented for clinical conclusions.
+- The notebook uses a single split and should be validated with cross-validation.
+- The Random Forest regressor framing is less appropriate for a binary target than classification models.
+- Potential bias across demographic or lifestyle groups has not been evaluated.
 
-git clone <your_repo_url>
-cd hypertension-prediction
+## Future Improvements
+- Reframe all modeling around classification metrics.
+- Add cross-validation and confidence intervals.
+- Compare logistic regression, Random Forest classifier, gradient boosting, and calibrated models.
+- Add feature importance or coefficient interpretation with caution.
+- Add a model card with intended use, non-use cases, and ethical limitations.
+
+## How to Run
+```bash
+git clone https://github.com/BobbY-24/Hypertension-Prediction-Improvement-2.0.git
+cd Hypertension-Prediction-Improvement-2.0
+python -m venv .venv
+source .venv/bin/activate  # macOS/Linux
 pip install -r requirements.txt
+jupyter notebook notebooks/hypertension_prediction.ipynb
+```
 
-
-requirements.txt should include:
-
-pandas
-numpy
-matplotlib
-seaborn
-scikit-learn
-
-📂 Dataset
-
-Source: Kaggle (Hypertension Dataset)
-
-Target Variable: Has_Hypertension (Yes/No → converted to Boolean)
-
-Features Used:
-
-Numerical: Age, Salt_Intake, Stress_Score, Sleep_Duration, BMI
-
-Categorical: BP_History, Medication, Family_History, Exercise_Level, Smoking_Status
-
-🔬 Methods
-1. Random Forest Approach
-
-Preprocessing: One-hot encoding for categorical features, passthrough for numerical.
-
-Model: RandomForestRegressor (100 estimators, random_state=42).
-
-Evaluation:
-
-Mean Squared Error (MSE)
-
-R² Score
-
-2. Logistic Regression Approach
-
-Preprocessing:
-
-StandardScaler for numerical features
-
-OneHotEncoder for categorical features
-
-Model: LogisticRegression (max_iter=1000, random_state=42).
-
-Evaluation:
-
-Accuracy
-
-Classification Report (Precision, Recall, F1-score)
-
-📊 Results
-
-Random Forest: Provided regression-based evaluation with MSE and R².
-
-Logistic Regression: Better suited for classification, offering accuracy and detailed performance metrics.
-
-Method 1: 
-
-Mean Squared Error: 0.04
-R^2 Score: 0.82
-
-Method 2: 
-
-Accuracy: 0.8823529411764706
-Classification Report:
-               precision    recall  f1-score   support
-
-       False       0.85      0.87      0.86       101
-        True       0.90      0.89      0.90       137
-
-    accuracy                           0.88       238
-   macro avg       0.88      0.88      0.88       238
-weighted avg       0.88      0.88      0.88       238
-
-
-🚀 Next Steps
-
-Hyperparameter tuning (GridSearchCV / RandomizedSearchCV)
-
-Try alternative models (XGBoost, SVM, Neural Networks)
-
-Feature importance analysis
-
-Cross-validation for robust evaluation
-
-✍️ Author
-
-Bob Yan
+Run the notebook cells from top to bottom. The notebook expects the dataset at `data/hypertension_dataset.csv`.
